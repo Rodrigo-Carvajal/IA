@@ -1,4 +1,5 @@
 from logicpuzzles import *
+#link: https://logic.puzzlebaron.com/play.php?u2=34df7d74038a4529bd3b62c583104ed4
 
 # Hay 4 marineros que compitieron en dar una vuelta al mundo en la menor cantidad de días
 marinero1 = (270, var(), var(), var())

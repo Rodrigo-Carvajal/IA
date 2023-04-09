@@ -13,7 +13,7 @@ def impresoraproblem(objetos):
       membero((var(), var(), 'Copa', 'Naranjo'), objetos),
       
       #2 La carcasa, la pieza azul y lo imprimido en 15min son 3 elementos diferentes
-      membero((var(),var(), 'Carcasa', var()), objetos), membero((var(),var(), var(), 'Azul'), objetos), membero((15,var(), var(), var()), objetos),
+      #membero((var(),var(), 'Carcasa', var()), objetos), membero((var(),var(), var(), 'Azul'), objetos), membero((15,var(), var(), var()), objetos),
       
       
       #3 Diseño se imprimio en 10min y diseño amarillo, uno era de Virgil y otro de Felicia
@@ -39,7 +39,15 @@ def impresoraproblem(objetos):
       
       #9 La pieza que imprimió en 20min fue amarilla.
       eq((20, var(), var(), 'Amarillo'), objeto3),
+      
+      #
+      membero((var(), var(), 'Flores', var()), objetos),
+      membero((var(), var(), 'Carcasa', var()), objetos),
+      membero((var(), 'Raquel', var(), var()), objetos)
     )
-
-solucion = run(0, objetos, impresoraproblem(objetos))
+solucion = run(0, objetos, impresoraproblem(objetos),
+            #2 La carcasa, la pieza azul y lo imprimido en 15min son 3 elementos diferentes
+            differents(objetos, ((15,), (var(),), ('Carcasa',), ('Azul',)))
+               
+               )
 print(solucion)

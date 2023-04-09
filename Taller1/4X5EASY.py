@@ -50,7 +50,7 @@ def schoolDriverProblem(estudiantes):
         somewhat_right_of(estudiantes, (var(), var(), var(), 'Mrs. Nolan'), (var(), var(), 20, var())),
 
         #7.- El estudiante del Sr. Slate está programado 2 horas después de Lorena. CUMPLE
-        right_of(estudiantes, (var(), var(), var(), 'Mr. Slate'), (var(), 'Lorena', var(), var()), n=2),
+        right_of(estudiantes, (var(), var(), var(), 'Mr. Slate'), (var(), 'Lorena', var(), var()), 2),
 
         #8.- El estudiante de 21 años está programado en algún momento antes que Elmer. CUMPLE
         somewhat_left_of(estudiantes, (var(), var(), 21, var()), (var(), 'Elmer', var(), var())),
@@ -66,5 +66,5 @@ def schoolDriverProblem(estudiantes):
     )
 
 #Ejecución
-solutions = run(1, estudiantes, schoolDriverProblem(estudiantes))
+solutions = run(0, estudiantes, schoolDriverProblem(estudiantes))
 print(solutions)

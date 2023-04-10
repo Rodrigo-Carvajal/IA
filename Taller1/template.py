@@ -23,5 +23,9 @@ def funcion():
         #n Datos no mencionados
     )
 
+start = perf_counter()
 solutions = run(0, objetos, funcion(objetos))
-print(solutions)
+end = perf_counter()
+execution_time = (end - start)
+print('Soluciones:', solutions)
+print('Resuelto en (segundos):', execution_time)

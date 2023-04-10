@@ -27,9 +27,6 @@ def schoolDriverProblem(estudiantes):
         #1.- El estudiante de 21 años esta agendado en algun momento después de Lorena. CUMPLE
         somewhat_right_of(estudiantes, (var(), var(), 21, var()), (var(), 'Lorena', var(), var())),
 
-        #2.- El estudiante de 17 años no es Elmer. NO CUMPLE
-        neq((var(), 'Elmer', 17, var()), estudiantes),
-
         #3.- Harold es el aprendiz del Sr. French o es el aprendiz de 17 años. CUMPLE
         lany(
             membero((var(), 'Harold', var(), 'Mr. French'), estudiantes), 
@@ -66,5 +63,8 @@ def schoolDriverProblem(estudiantes):
     )
 
 #Ejecución
-solutions = run(0, estudiantes, schoolDriverProblem(estudiantes))
+solutions = run(0, estudiantes, schoolDriverProblem(estudiantes),
+                    #2.- El estudiante de 17 años no es Elmer.CUMPLE
+                    differents(estudiantes,((var(),), ('Elmer',), (17,), (var(), )))
+                )
 print(solutions)

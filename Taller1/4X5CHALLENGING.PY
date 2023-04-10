@@ -26,7 +26,7 @@ def pinball(maquinas):
         membero((var(), '$1750', 'Hayco Inc.', var()), maquinas),
 
         #2.- El juego hecho por Waverly Toys salió un año después que la máquina hecha por Tarco Inc. CUMPLE
-        right_of(maquinas, (var(), var(), 'Waverly Toys', var()), (var(), var(), 'Tarco Inc.', var()), 1),
+        right_of(maquinas, (var(), var(), 'Waverly Toys', var()), (var(), var(), 'Tarco Inc.', var())),
 
         #3.- De la máquina echa por Pinnefore y el juego de $1750, uno es aladeen y el otro fue lanzado en 1977. CUMPLE
         conde(
@@ -51,9 +51,6 @@ def pinball(maquinas):
         #7.- Bowling Alley cuesta $1500. CUMPLE
         membero((var(), '$1500', var(), 'Bowling Alley'), maquinas),
 
-        #8.- La máquina lanzada en 1975 no cuesta $5200. CUMPLE
-        neq((1975, '$5200', var(), var()), pin2),
-
         #9.- La máquina hecha por Tarco Inc. salió 2 años antes de la máquina de $6400. CUMPLE
         left_of(maquinas, (var(), var(), 'Tarco Inc.', var()), (var(), '$6400', var(), var()), 2),
         
@@ -63,5 +60,8 @@ def pinball(maquinas):
         membero((var(), var(), var(), 'Voyager Hero'), maquinas)
     )
 
-solutions = run(0, maquinas, pinball(maquinas))
+solutions = run(0, maquinas, pinball(maquinas),
+                    #8.- La máquina lanzada en 1975 no cuesta $5200. CUMPLE
+                    differents(maquinas, ((1975,), ('$5200', ), (var(),), (var(),)))
+                )
 print(solutions)
